@@ -17,6 +17,9 @@ class PicturesController < ApplicationController
     end
     
     def index
+        
+        @home = Photo.all.order(:updated_at => :desc)
+        
         render("pic_templates/index.html.erb")
     end
     

@@ -4,20 +4,27 @@
   Add a new photo
 </a>
 
-  <div class="thumbnail">
-    <img src="hi">
+ 
+ <% @home.each do |pic| %>
+   
+   <div class="thumbnail">
+    <img src="<%= pic.source %>">
 
     <div class="caption">
-      <a href="/photos/152" class="btn btn-default btn-block">
+      <a href="/photos/<%= pic.id %>" class="btn btn-default btn-block">
         Show Details
       </a>
 
-      <a href="/photos/152/edit" class="btn btn-default btn-block">
+      <a href="/photos/<%= pic.id %>/edit" class="btn btn-default btn-block">
         Edit
       </a>
 
-      <a href="/delete_photo/152" class="btn btn-default btn-block">
+      <a href="/delete_photo/<%= pic.id %>" class="btn btn-default btn-block">
         Delete
       </a>
     </div>
   </div>
+  
+  <% end %>
+ 
+  
