@@ -1,0 +1,30 @@
+<h1>All Photos</h1>
+
+<a href="/photos/new">
+  Add a new photo
+</a>
+
+ 
+ <% @home.each do |pic| %>
+   
+   <div class="thumbnail">
+    <img src="<%= pic.source %>">
+
+    <div class="caption">
+      <a href="/photos/<%= pic.id %>" class="btn btn-default btn-block">
+        Show Details
+      </a>
+
+      <a href="/photos/<%= pic.id %>/edit" class="btn btn-default btn-block">
+        Edit
+      </a>
+
+      <a href="/delete_photo/<%= pic.id %>" class="btn btn-default btn-block">
+        Delete
+      </a>
+    </div>
+  </div>
+  
+  <% end %>
+ 
+  
