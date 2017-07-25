@@ -51,7 +51,7 @@ class PicturesController < ApplicationController
         
         @pic_id = @pic.id
         
-        redirect_to("/photos")
+        redirect_to("/photos/#{@pic_id}")
         
         #render("pic_templates/update_row.html.erb")
     end
