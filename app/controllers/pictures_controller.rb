@@ -22,22 +22,37 @@ class PicturesController < ApplicationController
     
     def show
         
-        the_id_number = params["the_id"]
-        
-        @pic = Photo.find(the_id_number)
+        @pic = Photo.find(params["the_id"])
         
         render("pic_templates/show.html.erb")
     end
     
     def edit_form
+        # Parameters: {"an_id"=>""}
+        
+        @pic = Photo.find(params["an_id"])
+        
         render("pic_templates/edit_form.html.erb")
     end
     
     def update_row
+        
+        #Parameters: {"the_source"=>"", "the_caption"=>"", "some_id"=>""}
+        
+        @pic = Photo.find(params["some_id"])
+        @pic.source = params["the_source"]
+        @pic.caption = params["the_caption"]
+        @pic.save
+        
         render("pic_templates/update_row.html.erb")
     end
     
     def destroy_row
+        # Parameters: {"toast_id"=>""}
+        
+        @pic = Photo.find(params["toast_id"])
+        @pic.destroy
+        
         render("pic_templates/destroy_row.html.erb")
     end
     
